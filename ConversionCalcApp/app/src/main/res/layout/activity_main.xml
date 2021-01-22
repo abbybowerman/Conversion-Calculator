@@ -13,7 +13,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="81dp"
-        android:text="to"
+        android:text="To"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/fromUnits"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +26,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="81dp"
         android:text="From"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,11 +83,22 @@
         android:id="@+id/calculateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
         android:text="Calculate"
         app:backgroundTint="#3F51B5"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input" />
+
+    <Button
+        android:id="@+id/changeUnitsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Change Units"
+        app:backgroundTint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="@+id/output"
+        app:layout_constraintTop_toBottomOf="@+id/output" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
