@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Conversion Calculator</string>
+    <string-array name="length_array">
+        <item>Inches</item>
+        <item>Feet</item>
+        <item>Yards</item>
+        <item>Millimeters</item>
+        <item>Centimeters</item>
+        <item>Meters</item>
+    </string-array>
 </resources>
