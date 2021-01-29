@@ -10,71 +10,67 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="16dp"
         android:text="To"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/toUnits"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="81dp"
         android:text="From"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/fromUnits"
-        android:layout_width="125dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Spinner
         android:id="@+id/toUnits"
-        android:layout_width="125dp"
-        android:layout_height="33dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/input"
-        android:layout_width="125dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fromUnits" />
 
     <EditText
         android:id="@+id/output"
-        android:layout_width="125dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:editable="false"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toUnits" />
 
     <Button
@@ -87,7 +83,7 @@
         android:text="Calculate"
         app:backgroundTint="#3F51B5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input" />
+        app:layout_constraintTop_toBottomOf="@+id/output" />
 
     <Button
         android:id="@+id/changeUnitsButton"
