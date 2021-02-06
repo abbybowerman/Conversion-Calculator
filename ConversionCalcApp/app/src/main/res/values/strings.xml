@@ -8,6 +8,18 @@
         <item>Centimeters</item>
         <item>Meters</item>
     </string-array>
+    <string-array name="volume_array">
+        <item>Liters</item>
+        <item>Gallons</item>
+        <item>Quarts</item>
+        <item>Pints</item>
+        <item>Cups</item>
+        <item>Ounces</item>
+    </string-array>
+    <string-array name="mass_array">
+        <item>Pounds</item>
+        <item>Kilograms</item>
+    </string-array>
     <string-array name="temperature_array">
         <item>Fahrenheit</item>
         <item>Celsius</item>

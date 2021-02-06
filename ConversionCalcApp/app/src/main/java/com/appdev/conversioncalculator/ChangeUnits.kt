@@ -1,8 +1,10 @@
 package com.appdev.conversioncalculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 
 class ChangeUnits : AppCompatActivity() {
@@ -11,6 +13,7 @@ class ChangeUnits : AppCompatActivity() {
         setContentView(R.layout.activity_change_units)
 
         val spinner = findViewById<Spinner>(R.id.types)
+        val saveButton = findViewById<Button>(R.id.saveButton)
 
         ArrayAdapter.createFromResource(
             this,
@@ -21,6 +24,13 @@ class ChangeUnits : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
             spinner.adapter = adapter
+        }
+
+        saveButton.setOnClickListener {
+            val intent = Intent()
+            intent.putExtra("MODE", spinner.selectedItemPosition.toString())
+            setResult(1, intent)
+            finish()
         }
     }
 }
