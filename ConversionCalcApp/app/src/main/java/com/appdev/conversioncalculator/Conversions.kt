@@ -4,6 +4,44 @@ class Conversions {
     fun calculateLength(to: Double, fromUnit: String, toUnit: String): Double{
         if(fromUnit == toUnit) return to
 
+        if(fromUnit == "Inches"){
+            if(toUnit == "Feet"){
+                return to / 12.0
+            }else if(toUnit == "Centimeters"){
+                return to * 2.54
+            }else if(toUnit == "Meters"){
+                return to / 39.37
+            }else if(toUnit == "Yards"){
+                return to / 36.0
+            }else if(toUnit == "Millimeters"){
+                return to * 25.4
+            }
+        }else if(fromUnit == "Feet"){
+            if(toUnit == "Inches"){
+                return to * 12
+            }else if(toUnit == "Centimeters"){
+                return to * 30.48
+            }else if(toUnit == "Meters"){
+                return to / 3.281
+            }else if(toUnit == "Yards"){
+                return to / 3.0
+            }else if(toUnit == "Millimeters"){
+                return to * 304.8
+            }
+        }else if(fromUnit == "Centimeters"){
+            if(toUnit == "Inches"){
+                return to / 2.54
+            }else if(toUnit == "Feet"){
+                return to / 30.48
+            }else if(toUnit == "Meters"){
+                return to * 0.01
+            }else if(toUnit == "Yards"){
+                return to / 91.44
+            }else if(toUnit == "Millimeters"){
+                return to * 10
+            }
+        }
+
         return 0.0
     }
 

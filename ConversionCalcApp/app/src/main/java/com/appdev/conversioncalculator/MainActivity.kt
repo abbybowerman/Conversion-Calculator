@@ -60,14 +60,14 @@ class MainActivity : AppCompatActivity() {
                 if(start < 0){
                     Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
                 }else {
-                    c.calculateLength(start, fromSpinner.selectedItem.toString(),
+                    answer = c.calculateLength(start, fromSpinner.selectedItem.toString(),
                             toSpinner.selectedItem.toString())
                 }
             }else if(modeLabel.text == "Volume"){
                 if(start < 0){
                     Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
                 }else {
-                    c.calculateVolume(start, fromSpinner.selectedItem.toString(),
+                    answer = c.calculateVolume(start, fromSpinner.selectedItem.toString(),
                             toSpinner.selectedItem.toString())
                 }
             }else if(modeLabel.text == "Mass"){
