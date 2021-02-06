@@ -40,6 +40,42 @@ class Conversions {
             }else if(toUnit == "Millimeters"){
                 return to * 10
             }
+        }else if(fromUnit == "Meters"){
+            if(toUnit == "Inches"){
+                return to * 39.37
+            }else if(toUnit == "Feet"){
+                return to * 3.281
+            }else if(toUnit == "Centimeters"){
+                return to * 100
+            }else if(toUnit == "Yards"){
+                return to * 1.09361
+            }else if(toUnit == "Millimeters"){
+                return to * 1000
+            }
+        }else if(fromUnit == "Yards"){
+            if(toUnit == "Inches"){
+                return to * 36
+            }else if(toUnit == "Feet"){
+                return to * 3
+            }else if(toUnit == "Centimeters"){
+                return to * 91.44
+            }else if(toUnit == "Meters"){
+                return to / 1.09361
+            }else if(toUnit == "Millimeters"){
+                return to * 914.4
+            }
+        }else if(fromUnit == "Millimeters"){
+            if(toUnit == "Inches"){
+                return to / 25.4
+            }else if(toUnit == "Feet"){
+                return to / 304.8
+            }else if(toUnit == "Centimeters"){
+                return to * 0.1
+            }else if(toUnit == "Meters"){
+                return to * 0.001
+            }else if(toUnit == "Yards"){
+                return to / 914.4
+            }
         }
 
         return 0.0
