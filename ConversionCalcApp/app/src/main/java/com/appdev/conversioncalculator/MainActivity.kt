@@ -3,10 +3,7 @@ package com.appdev.conversioncalculator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -59,8 +56,30 @@ class MainActivity : AppCompatActivity() {
                 start = input.text.toString().toDouble()
             }
 
-            if(modeLabel.text == "Temperature"){
-                answer = c.calculateTemperature(start, fromSpinner.selectedItem.toString(), toSpinner.selectedItem.toString())
+            if(modeLabel.text == "Length"){
+                if(start < 0){
+                    Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
+                }else {
+                    c.calculateLength(start, fromSpinner.selectedItem.toString(),
+                            toSpinner.selectedItem.toString())
+                }
+            }else if(modeLabel.text == "Volume"){
+                if(start < 0){
+                    Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
+                }else {
+                    c.calculateVolume(start, fromSpinner.selectedItem.toString(),
+                            toSpinner.selectedItem.toString())
+                }
+            }else if(modeLabel.text == "Mass"){
+                if(start < 0){
+                    Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
+                }else {
+                    answer = c.calculateMass(start, fromSpinner.selectedItem.toString(),
+                            toSpinner.selectedItem.toString())
+                }
+            }else if(modeLabel.text == "Temperature"){
+                answer = c.calculateTemperature(start, fromSpinner.selectedItem.toString(),
+                        toSpinner.selectedItem.toString())
             }
 
             output.text = answer.toString()

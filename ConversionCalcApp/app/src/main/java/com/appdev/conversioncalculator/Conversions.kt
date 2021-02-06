@@ -2,6 +2,26 @@ package com.appdev.conversioncalculator
 
 class Conversions {
     fun calculateLength(to: Double, fromUnit: String, toUnit: String): Double{
+        if(fromUnit == toUnit) return to
+
+        return 0.0
+    }
+
+    fun calculateVolume(to: Double, fromUnit: String, toUnit: String): Double{
+        if(fromUnit == toUnit) return to
+
+        return 0.0
+    }
+
+    fun calculateMass(to: Double, fromUnit: String, toUnit: String): Double{
+        if(fromUnit == toUnit) return to
+
+        if(fromUnit == "Pounds"){
+            return 0.453592 * to
+        }else if(fromUnit == "Kilograms"){
+            return 2.20462262185 * to
+        }
+
         return 0.0
     }
 
