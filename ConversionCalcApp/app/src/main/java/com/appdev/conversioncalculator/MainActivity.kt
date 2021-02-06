@@ -1,24 +1,33 @@
 package com.appdev.conversioncalculator
 
-import android.R.attr
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val c = Conversions()
         val changeUnitsButton = findViewById<Button>(R.id.changeUnitsButton)
+        val calculateButton = findViewById<Button>(R.id.calculateButton)
+        val modeLabel = findViewById<TextView>(R.id.modeLabel)
+
+        val input = findViewById<TextView>(R.id.input)
+        val output = findViewById<TextView>(R.id.output)
 
         val fromSpinner: Spinner = findViewById(R.id.fromUnits)
         val toSpinner: Spinner = findViewById(R.id.toUnits)
+
+
 
         ArrayAdapter.createFromResource(
                 this,
@@ -39,14 +48,33 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ChangeUnits::class.java)
             startActivityForResult(intent, 1)
         }
+
+        calculateButton.setOnClickListener {
+            val start: Double
+            var answer: Double = 0.0
+            if(input.text == ""){
+                input.text = "0.0"
+                start = 0.0
+            }else{
+                start = input.text.toString().toDouble()
+            }
+
+            if(modeLabel.text == "Temperature"){
+                answer = c.calculateTemperature(start, fromSpinner.selectedItem.toString(), toSpinner.selectedItem.toString())
+            }
+
+            output.text = answer.toString()
+        }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 1){
             val fromSpinner: Spinner = findViewById(R.id.fromUnits)
             val toSpinner: Spinner = findViewById(R.id.toUnits)
+            val modeLabel = findViewById<TextView>(R.id.modeLabel)
             val m: String = data?.getStringExtra("MODE") ?: "0"
             if(m == "0"){
                 ArrayAdapter.createFromResource(
@@ -60,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                     fromSpinner.adapter = adapter
                     toSpinner.adapter = adapter
                 }
+                modeLabel.text = "Length"
                 toSpinner.setSelection(4)
             }else if(m == "1"){
                 ArrayAdapter.createFromResource(
@@ -73,6 +102,7 @@ class MainActivity : AppCompatActivity() {
                     fromSpinner.adapter = adapter
                     toSpinner.adapter = adapter
                 }
+                modeLabel.text = "Volume"
                 toSpinner.setSelection(1)
             }else if(m == "2"){
                 ArrayAdapter.createFromResource(
@@ -86,6 +116,7 @@ class MainActivity : AppCompatActivity() {
                     fromSpinner.adapter = adapter
                     toSpinner.adapter = adapter
                 }
+                modeLabel.text = "Mass"
                 toSpinner.setSelection(1)
             } else if(m == "3"){
                 ArrayAdapter.createFromResource(
@@ -99,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                     fromSpinner.adapter = adapter
                     toSpinner.adapter = adapter
                 }
+                modeLabel.text = "Temperature"
                 toSpinner.setSelection(1)
             }
         }
