@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         calculateButton.setOnClickListener {
             val start: Double
             var answer: Double = 0.0
-            if(input.text == ""){
+            if(input.text.isBlank()){
                 input.text = "0.0"
                 start = 0.0
             }else{

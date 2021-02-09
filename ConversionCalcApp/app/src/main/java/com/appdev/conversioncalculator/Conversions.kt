@@ -120,6 +120,42 @@ class Conversions {
             }else if(toUnit == "Ounces"){
                 return to * 32
             }
+        }else if(fromUnit == "Pints"){
+            if(toUnit == "Liters"){
+                return to * 0.473176
+            }else if(toUnit == "Gallons"){
+                return to * 0.125
+            }else if(toUnit == "Quarts"){
+                return to * 0.5
+            }else if(toUnit == "Cups"){
+                return to * 2
+            }else if(toUnit == "Ounces"){
+                return to * 16
+            }
+        }else if(fromUnit == "Cups"){
+            if(toUnit == "Liters"){
+                return to * 0.236588
+            }else if(toUnit == "Gallons"){
+                return to / 16.0
+            }else if(toUnit == "Quarts"){
+                return to / 4.0
+            }else if(toUnit == "Pints"){
+                return to * 0.5
+            }else if(toUnit == "Ounces"){
+                return to * 8
+            }
+        }else if(fromUnit == "Ounces"){
+            if(toUnit == "Liters"){
+                return to / 33.184
+            }else if(toUnit == "Gallons"){
+                return to / 128.0
+            }else if(toUnit == "Quarts"){
+                return to / 32.0
+            }else if(toUnit == "Pints"){
+                return to / 16.0
+            }else if(toUnit == "Cups"){
+                return to * 0.125
+            }
         }
 
         return 0.0
