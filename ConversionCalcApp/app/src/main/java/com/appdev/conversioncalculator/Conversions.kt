@@ -84,6 +84,44 @@ class Conversions {
     fun calculateVolume(to: Double, fromUnit: String, toUnit: String): Double{
         if(fromUnit == toUnit) return to
 
+        if(fromUnit == "Liters"){
+            if(toUnit == "Gallons"){
+                return to / 3.78541
+            }else if(toUnit == "Quarts"){
+                return to * 1.05669
+            }else if(toUnit == "Pints"){
+                return to * 2.113
+            }else if(toUnit == "Cups"){
+                return to * 4.167
+            }else if(toUnit == "Ounces"){
+                return to * 33.184
+            }
+        }else if(fromUnit == "Gallons"){
+            if(toUnit == "Liters"){
+                return to * 3.78541
+            }else if(toUnit == "Quarts"){
+                return to * 4
+            }else if(toUnit == "Pints"){
+                return to * 8
+            }else if(toUnit == "Cups"){
+                return to * 16
+            }else if(toUnit == "Ounces"){
+                return to * 128
+            }
+        }else if(fromUnit == "Quarts"){
+            if(toUnit == "Liters"){
+                return to * 0.946353
+            }else if(toUnit == "Gallons"){
+                return to * 0.25
+            }else if(toUnit == "Pints"){
+                return to * 2
+            }else if(toUnit == "Cups"){
+                return to * 4
+            }else if(toUnit == "Ounces"){
+                return to * 32
+            }
+        }
+
         return 0.0
     }
 
