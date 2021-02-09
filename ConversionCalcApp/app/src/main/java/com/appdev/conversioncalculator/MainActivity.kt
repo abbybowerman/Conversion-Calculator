@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.math.round
 
 
 class MainActivity : AppCompatActivity() {
@@ -82,8 +83,19 @@ class MainActivity : AppCompatActivity() {
                         toSpinner.selectedItem.toString())
             }
 
+            answer = answer.round(4)
             output.text = answer.toString()
         }
+    }
+
+    /**
+     * This function was taken directly from this website on 2/8/2021:
+     * https://discuss.kotlinlang.org/t/how-do-you-round-a-number-to-n-decimal-places/8843
+     * */
+    private fun Double.round(decimals: Int): Double {
+        var multiplier = 1.0
+        repeat(decimals) { multiplier *= 10 }
+        return round(this * multiplier) / multiplier
     }
 
     @SuppressLint("SetTextI18n")
