@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import kotlin.math.round
 
 
@@ -16,6 +17,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val sh = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        when(sh.getInt("mode", 2)){
+            0 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                delegate.applyDayNight()
+            }
+            1 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                delegate.applyDayNight()
+            }
+            2 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                delegate.applyDayNight()
+            }
+        }
 
         val c = Conversions()
         val changeUnitsButton = findViewById<Button>(R.id.changeUnitsButton)
@@ -31,9 +48,9 @@ class MainActivity : AppCompatActivity() {
 
 
         ArrayAdapter.createFromResource(
-                this,
-                R.array.length_array,
-                android.R.layout.simple_spinner_item
+            this,
+            R.array.length_array,
+            android.R.layout.simple_spinner_item
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -62,28 +79,48 @@ class MainActivity : AppCompatActivity() {
 
             if(modeLabel.text == "Length"){
                 if(start < 0){
-                    Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "can't have negative value",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }else {
-                    answer = c.calculateLength(start, fromSpinner.selectedItem.toString(),
-                            toSpinner.selectedItem.toString())
+                    answer = c.calculateLength(
+                        start, fromSpinner.selectedItem.toString(),
+                        toSpinner.selectedItem.toString()
+                    )
                 }
             }else if(modeLabel.text == "Volume"){
                 if(start < 0){
-                    Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "can't have negative value",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }else {
-                    answer = c.calculateVolume(start, fromSpinner.selectedItem.toString(),
-                            toSpinner.selectedItem.toString())
+                    answer = c.calculateVolume(
+                        start, fromSpinner.selectedItem.toString(),
+                        toSpinner.selectedItem.toString()
+                    )
                 }
             }else if(modeLabel.text == "Mass"){
                 if(start < 0){
-                    Toast.makeText(applicationContext,"can't have negative value",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "can't have negative value",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }else {
-                    answer = c.calculateMass(start, fromSpinner.selectedItem.toString(),
-                            toSpinner.selectedItem.toString())
+                    answer = c.calculateMass(
+                        start, fromSpinner.selectedItem.toString(),
+                        toSpinner.selectedItem.toString()
+                    )
                 }
             }else if(modeLabel.text == "Temperature"){
-                answer = c.calculateTemperature(start, fromSpinner.selectedItem.toString(),
-                        toSpinner.selectedItem.toString())
+                answer = c.calculateTemperature(
+                    start, fromSpinner.selectedItem.toString(),
+                    toSpinner.selectedItem.toString()
+                )
             }
 
             answer = answer.round(4)
@@ -129,9 +166,9 @@ class MainActivity : AppCompatActivity() {
             val m: String = data?.getStringExtra("MODE") ?: "0"
             if(m == "0"){
                 ArrayAdapter.createFromResource(
-                        this,
-                        R.array.length_array,
-                        android.R.layout.simple_spinner_item
+                    this,
+                    R.array.length_array,
+                    android.R.layout.simple_spinner_item
                 ).also { adapter ->
                     // Specify the layout to use when the list of choices appears
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -143,9 +180,9 @@ class MainActivity : AppCompatActivity() {
                 toSpinner.setSelection(4)
             }else if(m == "1"){
                 ArrayAdapter.createFromResource(
-                        this,
-                        R.array.volume_array,
-                        android.R.layout.simple_spinner_item
+                    this,
+                    R.array.volume_array,
+                    android.R.layout.simple_spinner_item
                 ).also { adapter ->
                     // Specify the layout to use when the list of choices appears
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -157,9 +194,9 @@ class MainActivity : AppCompatActivity() {
                 toSpinner.setSelection(1)
             }else if(m == "2"){
                 ArrayAdapter.createFromResource(
-                        this,
-                        R.array.mass_array,
-                        android.R.layout.simple_spinner_item
+                    this,
+                    R.array.mass_array,
+                    android.R.layout.simple_spinner_item
                 ).also { adapter ->
                     // Specify the layout to use when the list of choices appears
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -171,9 +208,9 @@ class MainActivity : AppCompatActivity() {
                 toSpinner.setSelection(1)
             } else if(m == "3"){
                 ArrayAdapter.createFromResource(
-                        this,
-                        R.array.temperature_array,
-                        android.R.layout.simple_spinner_item
+                    this,
+                    R.array.temperature_array,
+                    android.R.layout.simple_spinner_item
                 ).also { adapter ->
                     // Specify the layout to use when the list of choices appears
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
