@@ -12,15 +12,18 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        //gets shared preferences to be edited
         val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
         val myEdit = sharedPreferences.edit()
 
         val saveButton = findViewById<Button>(R.id.saveSettings)
         val group = findViewById<RadioGroup>(R.id.themeGroup)
 
+        //has the system default button checked by default
         group.check(R.id.defaultButton)
 
         saveButton.setOnClickListener {
+            //checks which radio button was selected and applies the appropriate theme
             when (group.checkedRadioButtonId){
                 R.id.lightButton -> {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -39,7 +42,9 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
 
+            //puts the changed preference in shared preferences
             myEdit.apply()
+            //closes the settings screen to return to the main screen
             finish()
         }
     }
