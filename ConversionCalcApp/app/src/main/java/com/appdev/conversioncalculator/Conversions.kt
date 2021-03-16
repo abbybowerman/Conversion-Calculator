@@ -2,8 +2,10 @@ package com.appdev.conversioncalculator
 
 class Conversions {
     fun calculateLength(to: Double, fromUnit: String, toUnit: String): Double{
+        //If the selected units are the same, return the user input
         if(fromUnit == toUnit) return to
 
+        //Current units of length are inches, feet, centimeters, meters, yards, millimeters
         if(fromUnit == "Inches"){
             if(toUnit == "Feet"){
                 return to / 12.0
@@ -82,8 +84,10 @@ class Conversions {
     }
 
     fun calculateVolume(to: Double, fromUnit: String, toUnit: String): Double{
+        //If the selected units are the same, return the user input
         if(fromUnit == toUnit) return to
 
+        //Current units of volume are liters, gallons, quarts, pints, cups and ounces
         if(fromUnit == "Liters"){
             if(toUnit == "Gallons"){
                 return to / 3.78541
@@ -162,8 +166,10 @@ class Conversions {
     }
 
     fun calculateMass(to: Double, fromUnit: String, toUnit: String): Double{
+        //If the selected units are the same, return the user input
         if(fromUnit == toUnit) return to
 
+        //Current units of mass are pounds and kilograms
         if(fromUnit == "Pounds"){
             return 0.453592 * to
         }else if(fromUnit == "Kilograms"){
@@ -174,8 +180,10 @@ class Conversions {
     }
 
     fun calculateTemperature(to: Double, fromUnit: String, toUnit: String): Double{
+        //If the selected units are the same, return the user input
         if(fromUnit == toUnit) return to
 
+        //Current temperature units are Fahrenheit, Celsius and Kelvin
         if(fromUnit == "Fahrenheit"){
             if(toUnit == "Celsius"){
                 return ((to - 32) * (5.0/9.0))

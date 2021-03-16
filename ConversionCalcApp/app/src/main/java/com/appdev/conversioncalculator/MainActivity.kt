@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val sh = getSharedPreferences("MySharedPref", MODE_PRIVATE)
         //if no value is there, it will set the value to default
         when(sh.getInt("mode", 2)){
+            //0 = light mode, 1 = dark mode, 2 = system default
             0 -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 delegate.applyDayNight()

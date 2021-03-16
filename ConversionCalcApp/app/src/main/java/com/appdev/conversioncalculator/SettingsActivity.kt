@@ -24,6 +24,8 @@ class SettingsActivity : AppCompatActivity() {
 
         saveButton.setOnClickListener {
             //checks which radio button was selected and applies the appropriate theme
+            //also stores which theme the user selected
+            //0 = light mode, 1 = dark mode, 2 = system default
             when (group.checkedRadioButtonId){
                 R.id.lightButton -> {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
